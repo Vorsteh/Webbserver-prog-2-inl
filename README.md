@@ -1,11 +1,11 @@
-# Skolprojekt: Fake Casino Game Website
+# Skolprojekt: Fake Casino Game Website (DRINKO)
 
 Detta är mitt skolprojekt för en fejkad casinospelwebbplats som jag utvecklar med PHP. Webbplatsen tillhandahåller en virtuell plattform där användare kan spela olika casinospel för skojs skull. Syftet med projektet är att tillämpa de kunskaper och färdigheter jag har lärt mig inom webbutveckling med PHP.
 
 ## Funktioner
 
 - **Användarregistrering och inloggning:** Användare kan registrera sig och logga in på webbplatsen för att spela spel och hantera sina konton.
-- **Spel:** Webbplatsen erbjuder olika fejkade casinospel, inklusive spelautomater, blackjack och roulette, som användare kan spela för skojs skull.
+- **Spel:** Webbplatsen erbjuder olika fejkade casinospel, inklusive spelautomater,plinko, coinflip etc.
 - **Användarkontohantering:** Användare kan se sina spelhistorik, saldo och andra kontoinformation.
 
 ## Teknologier
@@ -34,4 +34,5 @@ Bidrag swisha 112
 ## License
 
 Detta projekt är licensierat under [MIT License](LICENSE).
+INTE CHATGPT README
 

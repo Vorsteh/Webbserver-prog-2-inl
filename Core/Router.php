@@ -99,7 +99,7 @@ class Router
         echo htmlspecialchars($text);
     }
 
-    public function set_csrf()
+    public static function set_csrf()
     {
         session_start();
         if (!isset($_SESSION["csrf"])) {
@@ -108,7 +108,7 @@ class Router
         echo '<input type="hidden" name="csrf" value="' . $_SESSION["csrf"] . '">';
     }
 
-    public function is_csrf_valid()
+    public static function is_csrf_valid()
     {
         session_start();
         if (!isset($_SESSION['csrf']) || !isset($_POST['csrf'])) {

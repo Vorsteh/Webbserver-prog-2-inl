@@ -1,5 +1,6 @@
 <?php
-require 'components/navbar.view.php'
+require 'components/navbar.view.php';
+require 'components/clogin.view.php';
 ?>
 
 
@@ -17,5 +18,8 @@ require 'components/navbar.view.php'
 </head>
 <body class="w-3/4 m-auto">
     <h1 class="text-red-500 text-4xl">Index</h1>
+    <form action="">
+        <?php ?>
+    </form>
 </body>
 </html>

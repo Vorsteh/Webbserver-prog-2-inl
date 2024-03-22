@@ -20,15 +20,16 @@ Detta är mitt skolprojekt för en fejkad casinospelwebbplats som jag utvecklar 
 1. Klona projektet till din lokala maskin:
 git clone https://github.com/vorsteh/webbsinl.git
 
-2. Importera SQL-dumpen till din MySQL-databas för att skapa de nödvändiga tabellerna.
+2. Importera SQL-dumpen till din MySQL-databas för att skapa de nödvändiga tabellerna. (Finns i filerna p[ github)
 
 3. Konfigurera databasanslutningsinställningarna i `config.php`-filen.
 
-4. Starta en lokal webbserver (t.ex. Apache eller Nginx) och navigera till projektets rotkatalog i webbläsaren.
+4. Starta en lokal webbserver (t.ex. Apache eller Nginx) och navigera till projektets rotkatalog i webbläsaren. Eller kör > php -S localhost:8000 -t public
+
 
 ## Bidrag
 
-Bidrag är välkomna! Om du vill bidra till projektet kan du gärna öppna en fråga eller skicka in en pull-förfrågan.
+Bidrag swisha 112
 
 ## License
 

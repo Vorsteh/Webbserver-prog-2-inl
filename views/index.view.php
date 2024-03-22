@@ -1,6 +1,5 @@
 <?php
-require 'components/navbar.view.php';
-require 'components/clogin.view.php';
+require base_path('views/components/navbar.php');
 ?>
 
 
@@ -17,9 +16,8 @@ require 'components/clogin.view.php';
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="w-3/4 m-auto">
-    <h1 class="text-red-500 text-4xl">Index</h1>
-    <form action="">
-        <?php ?>
-    </form>
+    <?php if ($user): ?>
+        <h1>Welcome <?= $user->username ?></h1>
+    <?php endif; ?>
 </body>
 </html>

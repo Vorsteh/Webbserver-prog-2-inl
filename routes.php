@@ -8,7 +8,7 @@ $router->get('/about/$id', 'controllers/about.php');
 $router->get('/login', 'controllers/auth/login.php');
 
 //REGISTER
-$router->get('/register', 'controllers/auth/register.php');
+$router->get('/register', 'controllers/auth/register.php')->only('guest');
 $router->post('/register', 'controllers/auth/storeuser.php');
 
-\Core\Router::post('/skibid', 'controllers/skibidi.php');
+$router->get('/test', 'controllers/test.php')->only('auth');

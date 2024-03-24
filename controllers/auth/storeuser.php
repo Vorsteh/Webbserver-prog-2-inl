@@ -37,7 +37,10 @@ $user = $db->query('SELECT * FROM users WHERE username = :name OR email = :email
     'email' => $email
 ])->find();
 
-if($user) header('location: /');
+if($user){
+    header('location: /');
+    exit();
+}
 else{
 
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
@@ -51,9 +54,11 @@ else{
         $userData = $db->query('SELECT user_id, balance FROM users WHERE username = :username', ['username' => $username])->find();
 
         if ($userData) {
-            $_SESSION['id'] = $userData['user_id'];
-            $_SESSION['balance'] = $userData['balance'];
-            $_SESSION['username'] = $username;
+            $_SESSION['user'] = [
+                'id' => $userData['user_id'],
+                'username' => $userData['username'],
+                'balance' => $userData['balance']
+            ];
 
             header('Location: /');
             exit;

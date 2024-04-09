@@ -7,7 +7,7 @@ echo '<div class="hero min-h-screen bg-base-200">
       <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
     </div>
     <div class="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-      <form class="card-body">
+      <form class="card-body" action="login" method="POST">
         <div class="form-control">
           <label class="label">
             <span class="label-text">Email</span>

@@ -42,7 +42,6 @@ if($user){
     exit();
 }
 else{
-
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
     $success = $db->query('INSERT INTO users (username, email, password) VALUES (:username, :email, :password)', [
         'username' => $username,

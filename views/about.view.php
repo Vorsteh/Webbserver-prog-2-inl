@@ -9,6 +9,5 @@
 </head>
 <body>
     kajsdjkasjdkajs
-<?= $id ?>
 </body>
 </html>

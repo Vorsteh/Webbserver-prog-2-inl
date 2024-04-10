@@ -18,6 +18,7 @@ require base_path('views/components/navbar.php');
 <body class="w-3/4 m-auto">
     <?php if ($user): ?>
         <h1>Welcome <?= $user->username ?></h1>
+        <a href="/logout">logout</a>
     <?php endif; ?>
 </body>
 </html>

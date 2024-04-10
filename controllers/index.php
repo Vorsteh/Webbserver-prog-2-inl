@@ -13,7 +13,8 @@ class User {
 }
 
 $heading = "Home";
-$user = isset($_SESSION['id']) ? $user = new User($_SESSION['username'], $_SESSION['id'], $_SESSION['balance']) : null;
+
+$user = isset($_SESSION['user']['id']) ? $user = new User($_SESSION['user']['username'], $_SESSION['user']['id'], $_SESSION['user']['balance']) : null;
 
 view("index.view.php", [
     'heading' => $heading,

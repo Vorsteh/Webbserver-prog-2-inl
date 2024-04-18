@@ -4,6 +4,7 @@
 use Core\App;
 use Core\Database;
 
+
 $email = $_POST['email'];
 $password = $_POST['password'];
 
@@ -30,4 +31,6 @@ if(password_verify($password, $user['password'])){
     header('Location: /');
     exit;
 }
+header('Location: /login');
+die();
 

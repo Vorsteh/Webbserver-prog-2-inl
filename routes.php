@@ -20,4 +20,4 @@ $router->get('/logout', function (){
     die();
 });
 
-$router->get('/test', 'controllers/test.php')->only('auth');
+$router->get('/games', 'controllers/games/games.php');

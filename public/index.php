@@ -5,6 +5,27 @@ const BASE_PATH = __DIR__ . '/../';
 
 require BASE_PATH . 'Core/functions.php';
 
+require_once BASE_PATH . 'controllers/games/place_bet.php';
+function routeRequest($controller, $method, $requestData) {
+    $controllerInstance = new $controller();
+    $controllerInstance->$method($requestData);
+}
+$routes = [
+    'placeBet' => ['controller' => 'BetsController', 'method' => 'placeBet'],
+];
+if (isset($_POST['route']) && isset($routes[$_POST['route']])) {
+    $route = $routes[$_POST['route']];
+    $controller = $route['controller'];
+    $method = $route['method'];
+
+    echo $route[0];
+
+    routeRequest($controller, $method, $_POST);
+}
+
+
+
+
 spl_autoload_register(function ($class) {
     $class = str_replace('\\', DIRECTORY_SEPARATOR, $class);
 

@@ -5,7 +5,7 @@ const BASE_PATH = __DIR__ . '/../';
 
 require BASE_PATH . 'Core/functions.php';
 
-require_once BASE_PATH . 'controllers/games/place_bet.php';
+require_once BASE_PATH . 'controllers/games/BetsController.php';
 function routeRequest($controller, $method, $requestData) {
     $controllerInstance = new $controller();
     $controllerInstance->$method($requestData);

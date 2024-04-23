@@ -11,13 +11,12 @@ class Database
 
     private $stmt;
 
-    public function __construct($config, $username = 'root', $password = 'admin')
+    public function __construct($config, $username = 'root', $password = 'loveskold')
     {
 
         $config = require(base_path('config.php'));
 
         $dsn = "mysql:" . http_build_query($config['database'], '', ';');
-
         //$dsn = "mysql:host={$config['database']['host']};dbname={$config['database']['dbname']};charset=utf8mb4";
 
         $this->connection = new PDO($dsn, $username, $password, [

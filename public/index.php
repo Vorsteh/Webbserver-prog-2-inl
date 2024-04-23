@@ -18,8 +18,6 @@ if (isset($_POST['route']) && isset($routes[$_POST['route']])) {
     $controller = $route['controller'];
     $method = $route['method'];
 
-    echo $route[0];
-
     routeRequest($controller, $method, $_POST);
 }
 

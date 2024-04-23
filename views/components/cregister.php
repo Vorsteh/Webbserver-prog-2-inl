@@ -12,7 +12,7 @@ echo '<div class="hero min-h-screen bg-base-200">
           <label class="label">
             <span class="label-text">Username</span>
           </label>
-          <input name="username" type="email" placeholder="username" class="input input-bordered" required />
+          <input name="username" type="text" placeholder="username" class="input input-bordered" required />
         </div>
         <div class="form-control">
           <label class="label">

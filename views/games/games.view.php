@@ -30,8 +30,8 @@
         $('#placeBetForm').submit(function(event) {
             // Prevent default form submission
             event.preventDefault();
+            console.log('heheh');
 
-            // Get user's guess and bet amount from form fields
             var guess = $('#guess').val();
             var betAmount = $('#betAmount').val();
 
@@ -46,15 +46,11 @@
                 },
                 dataType: 'json',
                 success: function(response) {
-                    // Update UI based on response from controller
                     console.log(response);
-                    // Example: Display result and updated balance
                     $('#result').text('Result: ' + response.result);
                     $('#randomNumber').text('Random Number: ' + response.randomNumber);
-                    // You can update other elements or perform additional actions here
                 },
                 error: function(xhr, status, error) {
-                    // Handle errors
                     console.error(xhr.responseText);
                 }
             });

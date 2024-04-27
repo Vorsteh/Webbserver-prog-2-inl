@@ -5,19 +5,19 @@ use Core\App;
 use Core\Database;
 
 
-$email = $_POST['email'];
+$userc = $_POST['user'];
 $password = $_POST['password'];
 
 echo $password;
 
 $db = App::resolve(Database::class);
 
-$user = $db->query('SELECT * FROM users WHERE email = :email', [
-    'email' => $email
+$user = $db->query('SELECT * FROM users WHERE email = :user OR username = :user', [
+    'user' => $userc
 ])->find();
 
 if(!$user){
-    echo 'Email does not exitst!';
+    echo 'User does not exitst!';
     die();
 }
 

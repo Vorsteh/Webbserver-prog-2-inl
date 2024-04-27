@@ -1,32 +1,31 @@
-<?php
-
-echo '<div class="hero min-h-screen bg-base-200">
-  <div class="hero-content flex-col lg:flex-row-reverse">
-    <div class="text-center lg:text-left">
-      <h1 class="text-5xl font-bold">Login now!</h1>
-      <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+<section class="bg-[#1A2C38]">
+    <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+        <a href="#" class="flex items-center mb-6 text-2xl font-bold text-white">
+            Drinko
+        </a>
+        <div class="w-full bg-[#0F212E] rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
+            <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+                <h1 class="text-xl font-bold leading-tight tracking-tight text-white md:text-2xl dark:text-white">
+                    Sign in to your account
+                </h1>
+                <form class="space-y-4 md:space-y-6" action="login" method="POST">
+                    <div>
+                        <label for="user" class="block mb-2 text-sm font-medium text-white">Email or username</label>
+                        <input type="text" name="user" id="user" class="bg-[#1A2C38] border border-[#0F212E] text-white sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " placeholder="name@company.com | username" required="">
+                    </div>
+                    <div>
+                        <label for="password" class="block mb-2 text-sm font-medium text-white">Password</label>
+                        <input type="password" name="password" id="password" class="bg-[#1A2C38] border border-[#0F212E] text-white sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " placeholder="••••••••" required="">
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <a href="/forgor" class="text-sm font-medium text-white hover:underline dark:text-primary-500">Forgor password?</a>
+                    </div>
+                    <button type="submit" class="w-full text-white bg-[#1475E1] focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Sign in</button>
+                    <p class="text-sm font-light text-gray-100">
+                        Don’t have an account yet? <a href="/register" class="font-medium text-white hover:underline">Sign up</a>
+                    </p>
+                </form>
+            </div>
+        </div>
     </div>
-    <div class="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-      <form class="card-body" action="login" method="POST">
-        <div class="form-control">
-          <label class="label">
-            <span class="label-text">Email</span>
-          </label>
-          <input name="email" type="email" placeholder="email" class="input input-bordered" required />
-        </div>
-        <div class="form-control">
-          <label class="label">
-            <span class="label-text">Password</span>
-          </label>
-          <input name="password" type="password" placeholder="password" class="input input-bordered" required />
-          <label class="label">
-            <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
-            <a href="/login" class="label-text-alt link link-hover">Dont have an account? Register</a>
-        </div>
-        <div class="form-control mt-6">
-          <button class="btn btn-primary">Login</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>';
+</section>

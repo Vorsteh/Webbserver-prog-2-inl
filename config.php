@@ -5,7 +5,7 @@ return [
         'host' => 'localhost',
         'password' => 'admin',
         'port' => 3306,
-        'dbname' => 'new_schema',
+        'dbname' => 'webbsinl',
         'charset' => 'utf8mb4'
     ],
 

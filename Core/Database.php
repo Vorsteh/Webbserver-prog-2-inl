@@ -11,7 +11,7 @@ class Database
 
     private $stmt;
 
-    public function __construct($config, $username = 'root', $password = 'loveskold')
+    public function __construct($config, $username = 'root', $password = 'admin')
     {
 
         $config = require(base_path('config.php'));

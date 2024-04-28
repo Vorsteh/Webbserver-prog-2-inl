@@ -11,6 +11,8 @@ $router->get('/login', 'controllers/auth/login.php');
 
 //REGISTER
 
+$router->post('/mines', 'controllers/games/mines.php');
+
 $router->post('/register', 'controllers/auth/storeuser.php');
 $router->get('/register', 'controllers/auth/register.php');
 
@@ -21,3 +23,6 @@ $router->get('/logout', function (){
 });
 
 $router->get('/games', 'controllers/games/games.php');
+
+$router->get('/wallet', 'controllers/wallet.php');
+$router->get('/profile', 'controllers/profile.php');

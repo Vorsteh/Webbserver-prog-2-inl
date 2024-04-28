@@ -25,7 +25,8 @@ if(password_verify($password, $user['password'])){
     $_SESSION['user'] = [
         'id' => $user['user_id'],
         'username' => $user['username'],
-        'balance' => $user['balance']
+        'balance' => $user['balance'],
+        'is_admin' => $user['is_admin']
     ];
 
     header('Location: /');

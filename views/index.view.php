@@ -36,7 +36,7 @@
                     <a href="/games?id=2" class="w-full text-white bg-[#1475E1] mt-10 focus:bg-[#0C69D1] font-medium rounded-lg text-sm px-5 py-2.5 text-center">Play <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
                 <div class="bg-[#213744] rounded-2xl p-4 text-white text-gray-100 font-semibold text-2xl flex flex-col items-center justify-center shadow-lg">
-                    <span>Coming soon...</span>
+                    <span>Plinko</span>
                     <i class="fa-solid fa-x mt-2 text-6xl mt-6 text-gray-100"></i>
                     <p class="text-center text-sm mt-6 text-gray-200">This item is in the making! <br> Coming soon...</p>
                     <button class="w-full text-white bg-[#0B294A] mt-10 focus:bg-[#0C69D1] disabled font-medium rounded-lg text-sm px-5 py-2.5 text-center" disabled><i class="fa-solid fa-arrow-right"></i></button>

@@ -1,5 +1,5 @@
 
-<div class="h-16 w-full shadow-lg flex items-center justify-center">
+<div class="h-16 w-full shadow-lg flex items-center justify-center z-60">
     <div class="w-3/4 flex items-center">
         <div class="flex-auto flex justify-between items-center text-white">
                 <div>
@@ -7,10 +7,10 @@
                 </div>
             <div class="flex items-center">
                 <div class="relative flex-grow">
-                    <div class="dropdown dropdown-bottom dropdown-end rounded-tr-none ">
+                    <div class="dropdown dropdown-bottom dropdown-end rounded-tr-none">
                         <div tabindex="0" id="dcurr" role="button" class="btn m-1 bg-[#0F212E] border-0 mr-0 text-white hover:bg-[#0E1F2C] rounded-br-none rounded-tr-none ">
                             <?php if ($user): ?>
-                                <p>$<?= $user->balance?> <i id="currency" class="fa-brands fa-ethereum"></i></p><i class="fa-solid fa-caret-down"></i>
+                                <p>$<?= number_format($user->balance, 2)?> <i id="currency" class="fa-brands fa-ethereum"></i></p><i class="fa-solid fa-caret-down"></i>
                                 <ul tabindex="0" class="dropdown-content z-[1] bg-[#0F212E] menu p-2 shadow-lg rounded-box w-52">
                                     <li><button id="btc">Bitcoin <i class="fa-brands fa-bitcoin"></i></button></li>
                                     <li><button id="eth">Ehterium <i class="fa-brands fa-ethereum"></i></button></li>

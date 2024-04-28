@@ -37,23 +37,34 @@
         <div id="game-board"></div>
         <div class="flex gap-5 text-center">
             <div>
-                <label for="email" class="block mb-2 text-sm font-medium text-white">Mines</label>
-                <input type="email" name="email" id="email" class="bg-[#1A2C38] border border-[#0F212E] text-white sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " placeholder="x" required="">
+                <label for="mineAmount" class="block mb-2 text-sm font-medium text-white">Mines</label>
+                <input type="text" name="mineAmount" id="mineAmount" class="bg-[#1A2C38] border border-[#0F212E] text-white sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " placeholder="x" required="">
             </div>
             <div>
-                <label for="email" class="block mb-2 text-sm font-medium text-white">Bet</label>
-                <input type="email" name="email" id="email" class="bg-[#1A2C38] border border-[#0F212E] text-white sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " placeholder="x" required="">
+                <label for="betAmount" class="block mb-2 text-sm font-medium text-white">Bet</label>
+                <input type="text" name="betAmount" id="betAmount" class="bg-[#1A2C38] border border-[#0F212E] text-white sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " placeholder="x" required="">
             </div>
         </div>
-        <div>
-            <button id="resetGame" class="bg-[#1475E1] px-4 py-3 rounded-md ml-0 font-semibold text-white mt-10 hidden">Reset Game</button>
-            <button id="startGame" class="bg-[#1475E1] px-4 py-3 rounded-md ml-0 font-semibold text-white mt-10">Start Game</button>
+        <div class="w-full text-center">
+            <button id="gameButton" class="bg-[#00E701] w-3/5 hover:bg-[#1FFF20] px-4 py-3 rounded-md ml-0 font-semibold text-[#050811] mt-10">Bet</button>
         </div>
     </div>
+    <div id="alertWindow" class="text-green-400 text-2xl absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black bg-opacity-10 flex justify-center items-center hidden">
+        <div class="bg-[#213744] py-4 px-7 rounded-lg relative border border-2 border-[#00E701] text-center">
+            <p id="alertMulti" class="font-semibold mb-2"></p>
+            <hr>
+            <p class="text-sm font-semibold mt-2"><span id="alertWin"></span><i class="fa-brands fa-bitcoin text-yellow-400"></i></p>
+            <p class="text-xs text-gray-300">You may need to refresh <br>to update wallet.</p>
+        </div>
+    </div>
+
+
+
     <script>
 
+
         const boardSize = 5
-        const mineCount = 2;
+        let mineCount = 2;
 
         let gameBoard = [];
         let mines = [];
@@ -113,7 +124,7 @@
                 gemSound.volume = 0.4;
                 gemSound.play();
                 gameOver = true;
-                resetButton.classList.remove('hidden');
+                gameButton.innerText = 'Bet';
             } else {
                 drawBoard();
                 gemsFound++;
@@ -126,6 +137,9 @@
                     (rFact(25-mineCount)*rFact(25-gemsFound));
                 let multiplier = winOdds*0.97;
                 displayedMultiplier.innerText = multiplier.toFixed(2).toString() + 'x';
+            }
+            if(gemsFound === 25 - mineCount){
+
             }
         }
 
@@ -184,16 +198,65 @@
             placeMines();
             drawBoard();
             displayedMultiplier.innerText = '0x';
-
         }
 
-        const resetButton = document.getElementById('resetGame');
-        const startButton = document.getElementById('startGame');
+        const gameButton = document.getElementById('gameButton');
 
-        resetButton.addEventListener('click', resetGame);
-        startButton.addEventListener('click', function (){
-            resetGame();
-            startButton.classList.add('hidden')
+        gameButton.addEventListener('click', function (){
+            if(gameOver && $('#betAmount').val() > 0.1 && $('#mineAmount').val() > 0 && $('#mineAmount').val() < 25) {
+                console.log('BET PLACED');
+                mineCount = $('#mineAmount').val();
+                $.ajax({
+                    type: 'POST',
+                    url: '/mines',
+                    data: {
+                        game: 'mines',
+                        betAmount: $('#betAmount').val(),
+                    },
+                    success:function (data){
+                        if (data.success) {
+                            resetGame();
+                            gameButton.innerText = 'Cash Out';
+                            $('#alertWindow').addClass('hidden');
+                        } else {
+                            console.log('Bet unsuccessful');
+                        }
+                    }
+                })
+            }else if(!gameOver && gemsFound >= 1){
+                console.log('CASH OUT');
+                $.ajax({
+                    type: 'POST',
+                    url: '/mines',
+                    data: {
+                        game: 'mines',
+                        bet: $('#betAmount').val(),
+                        multi: $('#multiplier').text(),
+                    },
+                    success:function (data){
+                        if (data.success) {
+                            gameButton.innerText = 'Bet';
+                            $('#alertWindow').removeClass('hidden');
+                            $('#alertMulti').text(data.multi + 'x');
+                            $('#alertWin').text('$' + data.win_loss.toFixed(2) + ' ');
+                        } else {
+                            console.log('Cashout unsuccessful');
+                        }
+                    }
+                })
+
+                gameButton.innerText = 'Bet';
+                revealAllMines();
+                gemsFound = 0;
+                gameOver = true;
+                return;
+            }
+
+            console.log('asdasdasd');
+        })
+
+        $('#btnCloseAlert').on('click', function() {
+            $('#alertWindow').addClass('hidden');
         });
 
         initGame();

@@ -1,7 +1,7 @@
 <?php
 $games = [
     '1' => 'dice',
-    '2' => 'mines'
+    '2' => 'mines2'
 ];
 
 if (isset($_GET['id']) && $_GET['id'] !== '') {

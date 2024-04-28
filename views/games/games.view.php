@@ -12,8 +12,8 @@ if (isset($_GET['id']) && $_GET['id'] !== '') {
         $gameToInclude = 'games/' . $game . '.php';
 
     } else {
+        $gameToInclude = null;
     }
-} else {
 }
 ?>
 
@@ -36,15 +36,10 @@ if (isset($_GET['id']) && $_GET['id'] !== '') {
 <?php
 require base_path('views/components/navbar.php');
 ?>
-<form id="placeBetForm">
-    <label for="guess">Guess:</label>
-    <input type="text" id="guess" name="guess">
-    <br>
-    <label for="betAmount">Bet Amount:</label>
-    <input type="text" id="betAmount" name="betAmount">
-    <br>
-    <button type="submit">Place Bet</button>
-</form>
+<div class="flex">
+    <?php if($gameToInclude) require base_path('views/' . $gameToInclude); ?>
+</div>
+
 
 </body>
 </html>

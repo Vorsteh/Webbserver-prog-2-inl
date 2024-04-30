@@ -56,7 +56,8 @@ else{
             $_SESSION['user'] = [
                 'id' => $userData['user_id'],
                 'username' => $userData['username'],
-                'balance' => $userData['balance']
+                'balance' => $userData['balance'],
+                'is_admin' => $userData['is_admin']
             ];
 
             header('Location: /');

@@ -15,7 +15,12 @@ class User {
 
 $heading = "Home";
 
-$user = isset($_SESSION['user']['id']) ? $user = new User($_SESSION['user']['username'], $_SESSION['user']['id'], $_SESSION['user']['balance']) : null;
+
+$db = \Core\App::resolve(\Core\Database::class);
+$balance = $db->query('SELECT balance FROM users WHERE user_id = :uid', [
+    'uid' => $_SESSION['user']['id'],
+]);
+$user = isset($_SESSION['user']['id']) ? $user = new User($_SESSION['user']['username'], $_SESSION['user']['id'], $balance) : null;
 
 
 $heading = 'Wallet';

@@ -239,6 +239,7 @@
                             $('#alertWindow').removeClass('hidden');
                             $('#alertMulti').text(data.multi + 'x');
                             $('#alertWin').text('$' + data.win_loss.toFixed(2) + ' ');
+                            setTimeout(location.reload(), 3000);
                         } else {
                             console.log('Cashout unsuccessful');
                         }

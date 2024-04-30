@@ -15,7 +15,15 @@ class User {
 
 $heading = "Home";
 
-$user = isset($_SESSION['user']['id']) ? $user = new User($_SESSION['user']['username'], $_SESSION['user']['id'], $_SESSION['user']['balance']) : null;
+
+$db = \Core\App::resolve(\Core\Database::class);
+if($_SESSION['user']){
+    $balanceResult = $db->query('SELECT balance FROM users WHERE user_id = :uid', [
+        'uid' => $_SESSION['user']['id'],
+    ])->find();
+}
+
+$user = isset($_SESSION['user']['id']) ? $user = new User($_SESSION['user']['username'], $_SESSION['user']['id'], $balanceResult['balance']) : null;
 
 view('games/games.view.php', [
     'heading' => "Games",

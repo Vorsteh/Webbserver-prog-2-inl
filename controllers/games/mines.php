@@ -5,6 +5,7 @@ use Core\Database;
 $success = false;
 $skibidi = false;
 $betAmount = isset($_POST['betAmount']) ? floatval($_POST['betAmount']) : 0;
+$newBalance = 0;
 $bet = isset($_POST['bet']) ? floatval($_POST['bet']) : 0;
 $multi = isset($_POST['multi']) ? floatval($_POST['multi']) : 0;
 
@@ -55,6 +56,7 @@ $response = [
     'bet'=>$bet,
     'multi' => $multi,
     'win_loss' => $bet * $multi,
+    'newBalance' => $newBalance
 ];
 
 // Set the Content-Type header to JSON
